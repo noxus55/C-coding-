@@ -1,0 +1,55 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to find all prime numbers below a certain number
+*/
+
+int main(void)
+{
+	int N, k = 0, x, i;
+
+	printf("We are going to find all prime numbers less than N.\n");		//getting the integer from the user
+	printf("Please enter a value for N:\n");
+
+	scanf("%d", &N);
+
+	if(N>2)																//2 is the smallest prime number
+	{
+		printf("The prime numbers less than %d are:\n", N);
+
+		while (k < N)													
+		{
+			x = 0;
+
+			for(i = 2; i <= k/2; ++i)									//this while loop tests the numbers and if they are prime, prints them out
+			{
+				if(k % i == 0)
+				{
+					x = 1;
+
+					break;
+				}
+			}
+
+			if (x == 0)
+			{
+				if(k == 1 || k == 0)
+				{
+					printf("");
+				}
+				else
+				{
+					printf("%d ", k);
+				}
+			}
+
+ 			++k;
+		}
+	}
+	else
+	{
+		printf("There are no prime numbers less than %d.", N);		//there are no prime numbers less than 2
+	}
+
+	return 0;
+}
