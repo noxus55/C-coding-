@@ -1,0 +1,40 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to print out the pavodan numbers
+*/
+
+int main(void)
+{
+	int N, a, b, c, x, z;
+
+	a = 1;
+	b = 1;
+	c = 1;
+
+	printf("How many Pavodan numbers do you want?\n");		//getting input from te user
+	scanf("%d", &N);
+
+	printf("The first %d Pavodan numbers are:\n", N);
+
+	printf("%d\n", a);
+	printf("%d\n", b);
+	printf("%d\n", c);
+
+	for(x = 4; x <= N; x++)			//calculating the rest of the pavodan numbers up to N
+	{
+		z = a + b;
+		a = b;
+		b = c;
+
+		printf("%d\n", z);
+
+		c = z;
+	}
+
+	return 0;
+}
+
+
+
+
