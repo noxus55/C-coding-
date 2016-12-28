@@ -1,0 +1,37 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to convert euro to sterling and vice versa
+*/
+
+int main(void)
+{
+	float e;
+	int x;
+
+	printf("Press 1 to convert Euro to Sterling, or 2 to convert Sterling to Euro.\n");
+	scanf("%d", &x);
+
+	while(x != 1 && x != 2)							//ask the user until they enter a valid choice
+	{
+		printf("Please enter a valid choice.\n");
+		scanf("%d", &x);
+	}
+
+	if(x == 1)
+	{
+		printf("What, in Euro, would you like to convert to Sterling?");			//using the appropriate conversion rates relevent to the user's choice
+		scanf("%f", &e);
+
+		printf("%fE is equivalent to %fStg.", e, e*0.80);
+	}
+	else
+	{
+		printf("What, in Sterling, would you like to convert to Euro?");
+		scanf("%f", &e);
+
+		printf("%fStg is equivalent to %fE.", e, e/0.80);
+	}
+
+	return 0;
+}
