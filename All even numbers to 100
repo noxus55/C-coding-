@@ -1,0 +1,22 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to print all even numbers up to 100
+*/
+
+int main(void)
+{
+	int i;
+
+	printf("All even numbers up to 100 are:\n");
+	
+	for (i = 0; i <= 100; i++)			//printing out all even numbers up to 100
+	{
+		if (i%2 == 0)
+		{
+			printf("%d\n", i);
+		}
+	}
+	
+	return 0;
+}
