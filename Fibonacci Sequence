@@ -1,0 +1,40 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to print out the fibbonaci sequence using a while loop, it is also more accurate
+*/
+
+int main(void)
+{
+	int N;
+	long firstNumber, secondNumber, nextNumber, x;
+
+	firstNumber = 0;
+	secondNumber = 1;
+	x = 1;
+
+	printf("How many numbers of the fibonacci sequence do want?\n");			//gettin user input
+	scanf("%d", &N);
+
+	printf("The the first %d numbers of the fibonacci sequence are:\n", N);
+
+	while(x < N)							//this gets calculates the fibbonaci sequence up to N, using a holder variable
+	{
+		x = x + 1;
+
+		if(x <= 1)
+		{
+			nextNumber = x;
+		}
+		else
+		{
+			nextNumber = firstNumber + secondNumber;
+			firstNumber = secondNumber;
+			secondNumber = nextNumber;
+		}
+
+		printf("%li\n",nextNumber);
+	}
+
+	return 0;
+}
