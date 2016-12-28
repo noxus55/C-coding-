@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <math.h>
+/*
+Written by Ryan Daly
+Program to  the roots of a quadratic equation, should they exist
+*/
+
+int main(void)
+{
+	double a, b, c; /* These will be the coefficients of x */
+	double r1, r2; /* These will be the values of the equation */
+	double s1, s2, s3, s4; /* These will be the "segments" of the equation */
+	double f1, f2; /* These are each half of the equation */
+
+	printf("The equation will be in the form ax^2 + bx + c = 0.\n");
+
+	printf("What is the value of 'a' ?\n");
+	scanf("%lf", &a);
+
+	if (a == 0)
+		{
+			printf("Because the equation is not a quadratic, we will have to find x using a different approach.\n");
+		}
+
+	printf("What is the value of 'b' ?\n");
+	scanf("%lf", &b);
+	printf("What is the value of 'c' ?\n");
+	scanf("%lf", &c);
+
+	s1 = -b;
+	s2 = b*b - 4*a*c;
+
+	if (a == 0)
+		{
+			if(b == 0)
+			{
+				printf("The equation has no roots");
+			}
+			else
+			{
+				printf("The value of x is %lf", (-c/b)); /* As 'a' is zero, we can compute it as a linear equation */
+			}
+		}
+	else
+		{
+			if (s2 < 0)		/*This if/else statement will account for the roots being complex numbers */
+				{
+					s2 = -s2;
+					s3 = sqrt(s2);
+					s4 = 2*a;
+
+					f1 = (s1/s4);
+					f2 = (s3/s4);
+
+					printf("The roots of the equation are complex and are %lf + %lfi and %lf - %lfi.\n", f1, f2, f1, f2);
+				}
+			else
+				{
+					s3 = sqrt(s2);
+					s4 = 2*a;
+
+					f1 = (s1/s4);
+					f2 = (s3/s4);
+	
+					r1 = f1 + f2;
+					r2 = f1 - f2;
+
+					printf("The roots of the equation are %lf and %lf.\n", r1, r2);
+				}
+		}
+	
+	return 0;
+}
