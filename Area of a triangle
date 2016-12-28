@@ -1,0 +1,21 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to find the area of a triangle
+*/
+
+int main(void)
+{
+	float h; /*declare the variable for height*/
+	float b; /*declare the variable for base length*/
+
+	printf("What is the height of the triangle?\n");
+	scanf("%f", &h);
+	
+	printf("What is the length of the base?\n");
+	scanf("%f", &b);
+
+	printf("The area of the triangle is %f square units.\n", (0.5*b*h));		//calculate triangle area
+	
+	return 0;	
+}
