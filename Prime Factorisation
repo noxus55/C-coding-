@@ -1,0 +1,67 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to prime factorise a number
+*/
+
+void printFactor(int a[], int c)     //this function prints out the prime factorisation in the format {x1,x2,...,xn}
+{
+	int i;
+
+	for(i=0; i<= c - 1; i++)
+	{
+		if(i==0 && i != c - 1)
+		{
+			printf("{%d,", a[i]);
+		}
+
+		else if(i==0 && c - 1 == 0)
+		{
+			printf("{%d}", a[i]);
+			break;
+		}
+		
+		else if(i == c - 1)
+		{
+			printf("%d}", a[i]);
+			break;
+		}
+
+		else
+		{
+			printf("%d,", a[i]);
+		}
+	}
+}
+
+void primeFactor(int N)  //this function gets the prime factors of a number N and keeps count of the amount of factors with c
+{
+	int a[200], c = 0, i;
+
+	for(i=2; i<=N; i++)                     
+	{
+		while(N%i == 0)
+		{
+			a[c] = i;
+			N=N/i;
+
+			c++;
+		}
+	}
+
+	printFactor(a, c);
+}
+
+int main(void)
+{
+	int i, N;
+
+	printf("Please enter an integer for prime factorisation.\n");   //this function gets input from the user and outputs information at the end
+	scanf("%d", &N);
+
+	printf("Your integer with prime factorisation is:\n");
+
+	primeFactor(N);
+
+	return 0;
+}
