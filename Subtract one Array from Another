@@ -1,0 +1,50 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to remove one array from another
+*/
+
+void removeChars(char a[], char b[])
+{
+	int i, j, c;
+
+	for(i=0; a[i]!='\0'; i++)   //This first function tests each character in a[] aganst each in b[]. it stops when it reaches the null character
+	{
+		for(j=0; b[j]!='\0'; j++)       //if it finds a character common to a[] and b[], it will remove it from a[] by shifting every element to its right, one to the left 
+		{ 
+			if(a[i] == b[j])
+			{
+				for(c=i; a[c]!='\0'; c++)
+				{
+					a[c] = a[c + 1];
+				}
+
+				i-=1;
+			}
+		}
+	}
+}
+
+int main(void)
+{
+	int i;
+
+	char a[200], b[200];
+
+	printf("Please enter the first string.\n");
+	fgets(a, 200, stdin);
+
+	printf("Now, please enter the second string.\n");
+	fgets(b, 200, stdin);
+
+	removeChars(a, b);
+
+	printf("The first string with the second string removed is:\n");
+
+	for(i=0; a[i]!='\0'; i++)                    //this prints out the now modified array a[], it stops when the null character is reached
+	{
+		printf("%c", a[i]);
+	}
+
+	return 0;
+}
