@@ -1,0 +1,93 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to check array for a palindrome
+*/
+
+int main(void)
+{
+	int i, N, c, x = 0;
+
+	printf("This is a program that will test to see if your array of integers is a palindrome or not.\n");
+	printf("How large would you like the array?\n");
+
+	scanf("%d", &N);		/*Gettting the size of the array to put some integers into*/
+
+	int a[N], b[N];			/*Making a second array of same size*/
+
+	c = N;
+
+	printf("Please enter some integers to be tested:\n");
+
+	for(i=0; i<N; i++)			/*This for loop fills a[] with integers from 0 to N*/
+	{
+		scanf("%d", &a[i]);
+	}
+
+	printf("Your array is: ");
+
+	for(i=0; i<N; i++)			/*This for loop prints out the array a[]*/
+	{
+		if(i==0)
+		{
+			printf("{%d,", a[i]);
+		}
+		else if(i == N - 1)
+		{
+			printf("%d}\n", a[i]);
+		}
+		else
+		{
+			printf("%d,", a[i]);
+		}
+	}
+
+	for(i=0; c >= i; i++)			/*This for loop puts the elements of a[] into the reverse position of b[]*/
+	{
+		b[N - 1 - i] = a[i];
+	}
+
+	printf("Your reversed array is: ");
+
+	for(i=0; i<N; i++)			/*This for loop prints out b[]*/
+	{
+		if(i==0)
+		{
+			printf("{%d,", b[i]);
+		}
+		else if(i == N - 1)
+		{
+			printf("%d}\n", b[i]);
+		}
+		else
+		{
+			printf("%d,", b[i]);
+		}
+	}
+
+	for(i=0; i<N; i++)			/*This loop checks the corresponding elements of a[] and b[], if they are different it will increase x by 1 and break the loop*/
+	{
+		if(b[i] == a[i])
+		{
+			x += 0;
+		}
+
+		else
+		{
+			x += 1;             /*BREAK if two are found to be not equal, it would be pointless to check the whole array*/
+			break;
+		}
+	}
+
+	if(x == 0)			/*If x is still 0, it is a palindrome*/
+	{
+		printf("Your array is the same when reversed, so it is a palindrome.\n");
+	}
+
+	else
+	{
+		printf("Your array is not a palindrome.\n");
+	}
+
+	return 0;
+}
