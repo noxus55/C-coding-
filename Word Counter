@@ -1,0 +1,41 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to count words in a program 
+*/
+
+int main(void)
+{
+	int i, s=0;                      //Setting the values, i is a counter, a is the array, s is the space counter 
+	char a[999], space = ' ';
+
+	printf("Please enter a string for which the number of words will be counted.\n");
+	fgets(a, 999, stdin);
+
+	for(i=0; i<999; i++)
+	{
+		if((a[i] ==  space || a[i + 1] ==  '\n' || a[i] ==  '.' || a[i] ==  ',' || a[i] ==  ';' || a[i] ==  ':' || a[i] ==  '?' || a[i] ==  '!') && a[i + 1] != space)   //This loop adds 1 to the space counter if it finds a group of space characters or other valid punctuation
+		{
+			s+=1;	
+		}
+		else if(i != 0 &&  a[i] == '\n')			//but will break when it gets to the end of the line
+		{
+			break;
+		}
+		else
+		{
+			s += 0;
+		}
+	}
+
+	if(s == 1)
+	{
+		printf("You're sentence contains 1 word.");
+	}
+	else
+	{
+		printf("You're sentence contains %d words", s);
+	}
+
+	return 0;
+}
