@@ -1,0 +1,95 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to find nth largest element in an array
+*/
+
+int main(void)
+{
+	int N;
+
+	printf("How large do you want your array?");		//getting the desired size of the array from the user
+	scanf("%d", &N);
+
+	int a[N];
+	int i, b=-1, c=0, x, y, z;
+
+	for(i=1; i<=N; i++)
+	{
+		if(i==1)
+		{
+			printf("Please enter the 1st integer:\n");			//getting each element of the array from the user
+			scanf("%d", &a[i-1]);
+		}
+		else if(i==2)
+		{
+			printf("Please enter the 2nd integer:\n");
+			scanf("%d", &a[i-1]);
+		}
+		else if(i==3)
+		{
+			printf("Please enter the 3rd integer:\n");
+			scanf("%d", &a[i-1]);
+		}
+		else
+		{
+			printf("Please enter the %dth integer:\n", i);
+			scanf("%d", &a[i-1]);
+		}
+	}
+
+	printf("Your array is: [");								//printing out the array the user has inputted
+	while(c<=N - 1)
+	{
+		if(c!= N - 1)
+		{
+			printf("%d, ", a[c]);
+		}
+		else
+		{
+			printf("%d]\n", a[c]);
+		}
+
+		c += 1;
+	}
+
+	printf("We will now find the k-th largeset integer in the array.\n");					//getting the value for b, ie the bth largest element
+	b = -1;
+	while(b<1 || b>N)
+	{
+		printf("Please enter a positive integer between 1 and %d:\n", N);				//it will continue asking for a value until the user has entered a valid value
+		scanf("%d", &b);
+	}
+
+    for (x = 0; x < N; ++x)															//ordering the array by  size
+    {
+        for (y = x + 1; y < N; ++y)
+        {
+            if (a[x] > a[y])
+            {
+                z = a[x];
+                a[x] = a[y];
+                a[y] = z;
+            }
+        }
+    }
+
+	if(b==1)
+	{
+		printf("The 1st greatest element of the array is %d\n", a[N - (b)]);					//we then return the bth largest element of the array to the user
+	}
+	else if(b==2)
+	{
+		printf("The 2nd greatest element of the array is %d\n", a[N - (b)]);
+	}
+	else if(b==3)
+	{
+		printf("The 3rd greatest element of the array is %d\n", a[N - (b)]);
+	}
+	else
+	{
+		printf("The %dth greatest element of the array is %d\n",b ,a[N - (b)]);
+	}
+
+	return 0;
+}
