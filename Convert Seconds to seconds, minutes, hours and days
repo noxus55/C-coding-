@@ -1,0 +1,43 @@
+ #include <stdio.h>
+/*
+Written by Ryan Daly
+Program to convert seconds into days hours minutes and seconds in a 'canonical' form
+*/
+
+struct Time
+{
+	long d;
+	long h;					//structure wher variables are stored
+	long m;
+	long s;
+	long x;
+};
+
+struct Time convert(long s)
+{
+	struct Time t;
+
+	t.d = t.s/86400; t.x = t.s%86400;			//function to convert seconds into "components", ie days minutes etc.
+
+ 	t.h = t.x/3600; t.x = t.s%3600;
+
+ 	t.m = t.x/60; t.x = t.s%60;
+
+ 	t.s = t.x;
+
+ 	return t; 
+}
+
+int main(void)
+{
+	long s;
+
+ 	printf("Please enter the time in seconds: ");
+ 	scanf("%ld", &s);											//main function where the output is put out
+
+ 	struct Time c = convert(s);
+
+ 	printf("The time is %lddy %ldhr %ldmin %ldsec", c.d, c.h, c.m, c.s);
+
+ 	return 0;
+}
