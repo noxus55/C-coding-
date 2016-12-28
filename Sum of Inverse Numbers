@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <math.h>
+/*
+Written by Ryan Daly
+Program to calculate sum of inverse numbers
+*/
+
+int main(void)
+{
+	double sum, y;
+	int N, x;
+
+	sum = 0;
+
+	printf("Please enter an integer value.\n");		//getting input from the user 
+	scanf("%d", & N);
+
+	for(x = 1; x < N; x++)				//calculating the sum of the first N inverse numbers
+	{
+		y = pow(x, -1);
+		sum = sum + y;
+	}
+
+	printf("The sum of the first inverse N numbers is %lf.", sum);		//giving the output
+
+	return 0;
+}
