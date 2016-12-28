@@ -1,0 +1,26 @@
+#include <stdio.h>
+/*
+Written by Ryan Daly
+Program to print out the factorial of any number using a while loop
+*/
+
+int main(void)
+{
+	long N, x, y, factorial;
+
+	printf("Please enter an integer N to find the factorial of.\n");			//getting N from the user 
+	scanf("%li", &N);
+
+	factorial = N;
+	x = N - 1;
+
+	while(x > 0)														//getting the factorial of the number N
+	{
+		factorial = factorial*x;
+		x = x - 1;
+	}
+
+	printf("The factorial of %li is %li.\n", N, factorial);			//printing the output
+
+	return 0;
+}
